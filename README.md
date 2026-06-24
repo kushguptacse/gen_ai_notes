@@ -1,2 +1,2 @@
 # gen_ai_notes
-covers short notes on different topics
+1. Mcp vs api
