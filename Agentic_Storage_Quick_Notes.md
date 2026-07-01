@@ -35,6 +35,7 @@ It does not solve the output problem:
 Think of it as:
 
 Context Window = RAM
+
 Agentic Storage = Hard Drive
 
 But it is more than storage.
