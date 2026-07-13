@@ -17,16 +17,20 @@ Issue:
 
 ---
 
-# What is Test Time Compute?
+# What is Test Time Compute? (Thinking Models)
 
 Extra compute used during inference.
 
 Flow:
 
 Query
+
 ↓
+
 Thinking
+
 ↓
+
 Answer
 
 The "Thinking..." message represents this reasoning stage.
@@ -100,11 +104,15 @@ Test-Time Compute
 Adaptive Routing
 
 Easy Query
+
 ↓
+
 Fast Model
 
 Hard Query
+
 ↓
+
 Reasoning Model
 
 Many chatbots automatically choose the appropriate path.
