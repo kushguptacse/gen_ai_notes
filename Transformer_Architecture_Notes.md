@@ -1,21 +1,21 @@
-# 🤖 Transformer Architecture
+# Transformer Architecture
 
-## 🚀 GPT Overview
+## GPT Overview
 
 **GPT = Generative Pre-trained Transformer**
 
-  Component         Meaning
-  ----------------- ---------------------------------------------------
-  **Generative**    Predicts the next token in a sequence
-  **Pre-trained**   Trained on massive datasets before downstream use
-  **Transformer**   Neural network architecture used by GPT
+| Component | Meaning |
+|-----------|----------|
+| **Generative** | Predicts the next token in a sequence |
+| **Pre-trained** | Trained on massive datasets before downstream use |
+| **Transformer** | Neural network architecture used by GPT |
 
 > **Note:** The Transformer is the architecture---not the language model
 > itself.
 
 ------------------------------------------------------------------------
 
-## 🧠 What is a Transformer?
+## What is a Transformer?
 
 The **Transformer** is a neural network architecture introduced by
 Google researchers in **2017** in the paper:
@@ -27,21 +27,17 @@ Its breakthrough was an efficient way to process sequences by learning
 
 ------------------------------------------------------------------------
 
-## 📈 Traditional ML vs Neural Networks
+## Traditional ML vs Neural Networks
 
-  -----------------------------------------------------------------------
-  Traditional ML                     Neural Networks
-  ---------------------------------- ------------------------------------
-  Statistical models                 Connected artificial neurons
-
-  Manual feature engineering         Learns features automatically
-
-  Good for simpler relationships     Learns complex hierarchical patterns
-  -----------------------------------------------------------------------
+| Traditional ML | Neural Networks |
+|----------------|------------------|
+| Statistical models | Connected artificial neurons |
+| Manual feature engineering | Learns features automatically |
+| Good for simpler relationships | Learns complex hierarchical patterns |
 
 ------------------------------------------------------------------------
 
-## 🏗️ Deep Neural Networks
+## Deep Neural Networks
 
 Deep learning increases the number of neural network layers.
 
@@ -54,7 +50,7 @@ Benefits:
 
 ------------------------------------------------------------------------
 
-## ⚙️ Transformer Architecture
+## Transformer Architecture
 
 Key characteristics:
 
@@ -82,7 +78,7 @@ Next Token Prediction
 
 ------------------------------------------------------------------------
 
-## 🎯 Attention Mechanism
+## Attention Mechanism
 
 The defining innovation of the Transformer.
 
@@ -107,21 +103,25 @@ Attention Layer
 
 ------------------------------------------------------------------------
 
-## 📅 Evolution of GPT
+## Evolution of GPT
 
-  Year   Milestone
-  ------ -------------------------------------
-  2017   Transformer architecture introduced
-  2018   GPT-1
-  2019   GPT-2
-  2020   GPT-3
-  2022   ChatGPT (GPT-3.5)
-  2023   GPT-4
-  2024   GPT-4o (Multimodal)
+| Year | Model / Milestone | Description |
+|------|-------------------|-------------|
+| 2017 | Transformer | Transformer architecture introduced ("Attention Is All You Need") |
+| 2018 | GPT-1 | First GPT model; demonstrated unsupervised pre-training + fine-tuning |
+| 2019 | GPT-2 | Larger model showing strong zero-shot generalization |
+| 2020 | GPT-3 | 175B parameter model; few-shot learning without fine-tuning |
+| 2022 | ChatGPT (GPT-3.5) | Instruction-tuned model with RLHF; broad public release |
+| 2023 | GPT-4 | Multimodal inputs; significant reasoning and safety improvements |
+| 2024 | GPT-4o (Multimodal) | Unified text, image, and audio model with faster response times |
+| 2024 | OpenAI o1 | First reasoning-focused model family that explicitly spends more compute on complex reasoning before responding |
+| 2025 | GPT-4.5 | Research preview focused on improved world knowledge, creativity, and conversational quality through larger-scale pre-training |
+| 2025 | GPT-5 | Unified model that automatically routes between fast responses and deeper reasoning, becoming the default ChatGPT model |
+| 2026 | GPT-5.x Family | Incremental releases (5.1–5.6) improving reasoning, coding, agentic workflows, long-context handling, and tool integration |
 
 ------------------------------------------------------------------------
 
-## ✅ Why Transformers Matter
+## Why Transformers Matter
 
 Compared to previous architectures:
 
@@ -133,7 +133,7 @@ Compared to previous architectures:
 
 ------------------------------------------------------------------------
 
-## ❓ Are Transformers Fundamental?
+## Are Transformers Fundamental?
 
 **No.**
 
