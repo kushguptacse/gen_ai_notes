@@ -144,3 +144,21 @@ This is the surprising part: extremely good **next-token prediction**, at a big 
 
 This byproduct is what people call **emergent intelligence**: a property that seems to appear only once you have *enough* parameters, layered *deeply* enough, trained on *enough* data.
 
+---
+
+## Quick Glossary
+
+| Term | Meaning |
+|---|---|
+| **Parameter / Weight** | A number the model can adjust — a "slider" controlling how inputs blend into outputs |
+| **Training** | Process of adjusting all parameters using example data |
+| **Inference** | Using the trained (frozen) model to make predictions on new input |
+| **Neural Network** | Layers of mixers ("neurons") feeding into each other |
+| **Nonlinearity / Activation Function** | The distortion applied at each neuron so layering mixers actually adds value |
+| **Token** | A small chunk of text (roughly a few characters) that the model reads/generates |
+| **Transformer** | The specific architecture (wiring pattern) connecting all the neurons — invented by Google in 2017 |
+| **Emergent Intelligence** | Reasoning-like behavior that arises as a byproduct of large-scale next-token prediction, not something explicitly programmed |
+
+---
+
+*Notes based on a video - https://www.youtube.com/watch?v=nYy-umCNKPQ&t=1s *
