@@ -79,7 +79,7 @@ Whether the model is generating the next token or building a vector representati
 
 ### Try It Yourself
 
-You can experiment with how real text gets broken into tokens using python code present in repo.
+You can experiment with how real text gets broken into tokens using `test_token.py` present in repo.
 
 ---
 
