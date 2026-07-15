@@ -79,10 +79,15 @@ Whether the model is generating the next token or building a vector representati
 
 ### Try It Yourself
 
-You can experiment with how real text gets broken into tokens using OpenAI's tokenizer tool:
-👉 `platform.openai.com/tokenizer`
+You can experiment with how real text gets broken into tokens using python code present in repo.
 
-Paste in any sentence and see exactly how it gets split into token chunks — it's the fastest way to build intuition for this concept.
+---
+
+### cost associated with token
+
+*More the input tokens, more the cost.* More is compute required to process the input tokens, more is the time taken to generate the output token.
+
+*Cost is directly proportional to the number of tokens.*
 
 ---
 
