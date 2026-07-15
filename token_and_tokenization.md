@@ -87,3 +87,16 @@ Paste in any sentence and see exactly how it gets split into token chunks — it
 ---
 
 ## Chapter 2: How tokenization works
+
+Tokenization is the process of converting raw text into a sequence of tokens that a language model can understand. It's like translating human language into the model's native tongue.
+
+### Key Points to Remember
+
+- **It's learned, not predefined**: The tokenizer doesn't have a fixed set of rules about what makes a good token — it learns them entirely from the text it's trained on.
+- **Not all tokenizers work the same**: While Byte-Pair Encoding (BPE) is very common (used by GPT-3, GPT-4, Llama, etc.), there are other methods like WordPiece (used by BERT) and SentencePiece (used by many models), though they all follow the same core idea of learning common text chunks.
+- **Goal: Balance efficiency and flexibility**: The tokenizer tries to find the sweet spot where it can represent text using the fewest possible tokens (for efficiency) while still being able to represent any possible text (using smaller chunks when needed).
+- **The tokenization process is consistent**: For a given tokenizer and a given input text, the output will always be the same — the same tokenization will always produce the same token sequence.
+
+- **Roughly, a token is like three quarters of a word, so a thousand tokens would be about 750 words.**
+
+---
