@@ -50,9 +50,7 @@ The big win: if you want to call a model on **Bedrock** (AWS), you just prefix w
 One of the most useful things LiteLLM gives you is a built-in utility to report **input tokens, output tokens, and cost** for every call.
 
 Key takeaway on cost:
-- API pricing is usually quoted **per million tokens**.
 - For individual, everyday calls — even with a "big" model — the actual cost is tiny.
-- Unit economics matter when you're scaling to many calls, but a single call is essentially free.
 - LiteLLM lets you check costs per call, but you should still monitor usage on the provider platforms directly.
 
 # Prompt Caching
