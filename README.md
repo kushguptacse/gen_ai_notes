@@ -8,6 +8,7 @@
 4. [Transformer Architecture Notes](./Transformer_Architecture_Notes.md)
 5. [Context Window & API Costs](./context_window_and_api_costs.md)
 6. [Types of Models](./types_of_models.md)
+7. [caching and lite_llm](./caching_and_lite_llm_vs_langchain.md)
 7. [Thinking Mode Notes](./Thinking_mode_Notes.md)
 8. [MCP vs API](./MCP_vs_API_Revision_Notes.md)
 9. [A2A vs MCP](./A2A_vs_MCP_Quick_Notes.md)
