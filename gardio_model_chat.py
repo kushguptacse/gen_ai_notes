@@ -18,13 +18,17 @@ def message_gpt(message_input):
     )
     return response.choices[0].message.content
 
-def stream_gpt(message_input):
+def stream_gpt(message_input, history):
+    messages = [{"role": "system", "content": system_message}]
+    if history:
+        for msg in history:
+            messages.append({"role": msg["role"], "content": msg["content"]})
+
+    messages.append({"role": "user", "content": message_input})
+    
     stream_resp = openai.chat.completions.create(
         model=config.LLM_MODEL_NAME,
-        messages=[
-            {"role": "system", "content": system_message},
-            {"role": "user", "content": message_input},
-        ],
+        messages=messages,
         stream=True,
     )
     result = ""
@@ -32,16 +36,5 @@ def stream_gpt(message_input):
         result += chunk.choices[0].delta.content or ""
         yield result
 
-message_input = gr.Textbox(label="Your message:", info="Enter a message for chatting", lines=7)
-message_output = gr.Markdown(label="Response:")
-
-view = gr.Interface(
-    fn=stream_gpt,
-    title="My Assistant", 
-    inputs=[message_input], 
-    outputs=[message_output], 
-    examples=["Explain the Transformer architecture to a layperson",
-        "Explain the Transformer architecture to an aspiring AI engineer"],
-    flagging_mode="never"
-    )
+view = gr.ChatInterface(fn=stream_gpt, title="My LLM Chatbot" ) 
 view.launch()
