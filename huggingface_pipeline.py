@@ -9,7 +9,7 @@ else:
 
 login(config.HF_TOKEN, add_to_git_credential=True)
 
-my_simple_sentiment_analyzer = pipeline("sentiment-analysis")
+my_simple_sentiment_analyzer = pipeline(task="sentiment-analysis",model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
 result = my_simple_sentiment_analyzer("I'm super excited for my trip to Thailand!")
 print(result)
 
