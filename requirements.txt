@@ -2,3 +2,6 @@ tiktoken
 gradio
 openai
 python-dotenv==1.1.1
+transformers
+huggingface_hub
+torch
