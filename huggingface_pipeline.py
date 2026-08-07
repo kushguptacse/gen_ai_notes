@@ -15,3 +15,10 @@ print(result)
 
 result = my_simple_sentiment_analyzer("I should be more excited for my trip to Thailand!")
 print(result)
+
+question="What are Hugging Face pipelines?"
+context="Pipelines are a high level API for inference of LLMs with common tasks"
+
+classifier = pipeline("zero-shot-classification")
+result = classifier("Hugging Face's Transformers library is amazing!", candidate_labels=["technology", "sports", "politics"])
+print(result)
