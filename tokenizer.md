@@ -21,7 +21,7 @@ natural language  →  tokens  →  token IDs
 | **Token** | The fragment of a word — the chunk |
 | **Token ID** | The number that represents that chunk |
 
-A token is a block of letters together that makes up part of a word. Or it can be a whole word. Or sometimes it can be two words. But that is a token.
+A token is a block of letters together that makes up part of a word. Or it can be a whole word. But that is a token. In-general token is 0.75 of word.
 
 People often say "token" when they mean "token ID," and it doesn't really matter. But strictly speaking: **the token is the chunk, the ID is the number.**
 
@@ -96,3 +96,86 @@ OUT:  a vector embedding
 ```
 
 So **tokenization is a step before you get to things like vectors**, which we'll cover later. Just in case that was confusing you — that clears it up.
+
+
+## Creating our first tokenizer
+
+We do that using a Hugging Face class called **`AutoTokenizer`**, which has this one static class method, **`from_pretrained`**, which takes in the name of a model from Hugging Face.
+
+```python
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3.1-8B")
+```
+
+The Hugging Face model name is made of two parts:
+
+- the **Hugging Face ID** — `meta-llama`, that's Meta's name for the Meta Llama account
+- the **name of the model** itself — `Meta-Llama-3.1-8B`
+
+So you pass that in.
+
+- `from_pretrained` means: *this is a pre-trained model, I want you, Hugging Face, to look this up.*
+- `AutoTokenizer` means: *please create the right kind of tokenizer for this model* and return it into this variable `tokenizer`.
+
+---
+
+## Encode and decode
+
+`encode` and `decode` are the two main methods you can call on a tokenizer.
+
+### `encode` — text → token IDs
+
+```python
+text = "I am excited to show Tokenizers in action to my LLM engineers"
+tokens = tokenizer.encode(text)
+print(tokens)
+```
+
+it's turning text into **token IDs**.
+
+**Let's count:**
+
+| | |
+|---|---|
+| Characters | 61 |
+| Words | 12 |
+| Tokens | 15 |
+
+Seems roughly in line with the rule of thumb. it's about **0.75 of a word to a token**, on average.
+
+
+**These numbers make sense to an LLM.** It's expecting them; it's been trained off lots of numbers like that. You couldn't put that *text* into a statistical model — a weighted thing with lots of parameters that combines numbers. It needs numbers. You need numbers to combine numbers. And here are the numbers it would expect to receive.
+
+### `decode` — token IDs → text
+
+```python
+tokenizer.decode(tokens)
+```
+
+```
+<|begin_of_text|>I am excited to show Tokenizers in action to my LLM engineers
+```
+
+That's a **special token** getting decoded at the beginning.
+
+That 128000 maps to the special token **`<|begin_of_text|>`**. And that special token tells the LLM *hey, this is the start of some text to you.*
+
+### `batch_decode` — token IDs → the individual pieces
+
+```python
+tokenizer.batch_decode(tokens)
+```
+
+`batch_decode` is a bit different to `decode`.
+
+Instead of giving you the whole sentence back, it turns it into the **individual tokens**:
+
+```
+['<|begin_of_text|>', 'I', ' am', ' excited', ' to', ' show', ' Token',
+ 'izers', ' in', ' action', ' to', ' my', ' LL', 'M', ' engineers']
+```
+
+That's showing you the individual token breakdown.
+
+---
