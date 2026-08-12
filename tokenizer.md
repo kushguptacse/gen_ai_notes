@@ -77,7 +77,7 @@ These decisions are very small, trivial decisions that people made to try and ge
 
 The much more important factor is **the quality of the results given the input you give it**, rather than exactly how many tokens it maps to.
 
-That's something of a red herring. Don't get too bogged down in why different tokenizers produce different numbers of tokens. It's more important to understand that **a tokenizer belongs to a model**, without getting hung up on the kinds of tokens it creates.
+It's more important to understand that **a tokenizer belongs to a model**, without getting hung up on the kinds of tokens it creates.
 
 ### 2. "Are tokens the same as vectors?"
 
@@ -86,8 +86,6 @@ No.
 
 All models — including models that create vectors — **take in tokens as their inputs.**
 
-Because statistical models can only talk in numbers. They don't know what it means to have a word. So you have to input something in the form of numbers, and the numbers we choose are the token IDs. That's how we first feed information into a model.
-
 ```
 IN:   token IDs                        ← always, for all models
 OUT:  a vector embedding
@@ -95,8 +93,7 @@ OUT:  a vector embedding
       / lots of different things
 ```
 
-So **tokenization is a step before you get to things like vectors**, which we'll cover later. Just in case that was confusing you — that clears it up.
-
+So **tokenization is a step before you get to things like vectors**, which we'll cover later.
 
 ## Creating our first tokenizer
 
