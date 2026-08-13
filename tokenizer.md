@@ -176,3 +176,97 @@ Instead of giving you the whole sentence back, it turns it into the **individual
 That's showing you the individual token breakdown.
 
 ---
+
+
+# Chat Templates: The Final Piece of the Puzzle
+
+## Instruct variants
+
+Base models just continue text. **Instruct variants** are the ones that have been
+specifically fine-tuned to expect a series of prompts — a conversation.
+
+To use one, load its tokenizer, not the base model's:
+
+```python
+# base model
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3.1-8B")
+
+# instruct variant — note the "-Instruct" on the end
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3.1-8B-Instruct")
+```
+
+The instruct tokenizer is **different**, because it has more special tokens in it.
+
+## Apply chat template
+
+`apply_chat_template` method takes an input in the form of the list of dictionaries that we know and love from
+using OpenAI's API, and converts it into a set of special tokens and text that would
+be suitable for a prompt.
+
+```python
+messages = [
+    {"role": "system", "content": "You are a helpful assistant"},
+    {"role": "user",   "content": "Tell a lighthearted joke for a room of data scientists"}
+]
+
+prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+print(prompt)
+```
+
+You might be thinking: *wait, wait, wait — what? What is that doing?*
+
+It'll land in a second. Look at the output:
+
+```
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Tell a lighthearted joke for a room of data scientists<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+```
+
+Lots of stuff happening here. A begin-of-text token. Start header / end header. It's even
+inserted a knowledge cutoff date and today's date (which is a long time in the past — that's
+just this particular chat template). Then your system prompt, then an `<|eot_id|>` end token,
+then the user block. And look at the ending: it stops right after
+`start_header_id assistant end_header_id`.
+
+## The eureka moment
+
+An LLM is a data science model. It takes a sequence of numbers and it predicts the most likely
+next number. It just deals in a set of numbers. It doesn't take multiple sets of numbers. It
+certainly doesn't take JSON. It's not software. It's a data science model.
+
+So what's actually happening? When you create this list of dicts, it gets converted into a
+sequence — a series of words with special tokens slotted in to say:
+
+- this is the start of a system prompt
+- this is the end of a system prompt
+- this is the start of a user prompt
+- this is the end
+- **this is the start of the assistant's response**
+
+That last one is what sits right at the end of the output above. And what the model does is
+predict whatever comes next. It just feels obliged to predict something consistent with an
+assistant's response to everything that came before it.
+
+## Why is it obliged?
+
+Not because of anything built into the neural network.
+
+It's just because **the training data looked that way.** Tons and tons of training data was
+built with these special tokens in there — user message, assistant response, user message,
+assistant response. It's seen so many examples that statistically it's likely to predict
+tokens consistent with an assistant response.
+
+## The takeaway
+
+There's nothing special about user prompts and system prompts and all the rest of it. They're
+just identified with special tokens, and there was tons of that in the training data. So the
+pattern matching that is an LLM is used to seeing those patterns — and the tokens it generates
+are consistent with our objective of getting an assistant response.
+
+That is it.
