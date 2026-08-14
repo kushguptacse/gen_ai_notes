@@ -234,7 +234,7 @@ just this particular chat template). Then your system prompt, then an `<|eot_id|
 then the user block. And look at the ending: it stops right after
 `start_header_id assistant end_header_id`.
 
-## The eureka moment
+## Reason
 
 An LLM is a data science model. It takes a sequence of numbers and it predicts the most likely
 next number. It just deals in a set of numbers. It doesn't take multiple sets of numbers. It
