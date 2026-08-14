@@ -18,6 +18,7 @@ types** used by AI agents.
                    skills             
 
   **Episodic**     Past experiences   Distilled memory store
+
   -----------------------------------------------------------------------
 
 ## 1. Working Memory
@@ -58,12 +59,12 @@ become obsolete?
 
 ## Key Differences
 
-  Question                 Memory
-  ------------------------ ------------
-  What is happening now?   Working
-  What do I know?          Semantic
-  How do I do this?        Procedural
-  What happened before?    Episodic
+| Question | Memory |
+| --- | --- |
+| What is happening now? | Working |
+| What do I know? | Semantic |
+| How do I do this? | Procedural |
+| What happened before? | Episodic |
 
 ## Key Takeaways
 
