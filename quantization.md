@@ -47,5 +47,3 @@ And the answer is: sure — but that's not what we do. It isn't a 4-bit integer.
 We take those four bits and use them to **represent the floating point space** in some way. There's a technique for doing it, and the data type is called **NF4** — a 4-bit representation of floating point numbers, assuming they're normally distributed.
 
 And again, it sort of works fine.
-
----
